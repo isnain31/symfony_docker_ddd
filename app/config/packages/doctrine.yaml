@@ -13,8 +13,8 @@ doctrine:
           DoenerKebab\Domain:
                 is_bundle: false
                 type: xml
-                dir: '%kernel.project_dir%/src/DonnerKebab/Infrastructure/config/orm'
-                prefix: 'App\DonnerKebab\Domain\Entity'
+                dir: '%kernel.project_dir%/src/Context/DonnerKebab/Infrastructure/config/orm'
+                prefix: 'App\Context\DonnerKebab\Domain\Model'
                 alias: DonnerKebab
 
 when@test:

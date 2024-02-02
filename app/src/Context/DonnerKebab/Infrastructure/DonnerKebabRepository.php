@@ -1,5 +1,10 @@
 <?php namespace App\Context\DonnerKebab\Infrastructure;
 
+use App\Context\DonnerKebab\Domain\Exceptions\BreadNotFoundException;
+use App\Context\DonnerKebab\Domain\Exceptions\DonnerKebabNotFoundException;
+use App\Context\DonnerKebab\Domain\Exceptions\InvalidOrderPlacedException;
+use App\Context\DonnerKebab\Domain\Exceptions\MeatNotFoundException;
+use App\Context\DonnerKebab\Domain\Exceptions\SaladNotFoundException;
 use App\Context\DonnerKebab\Domain\Repository\IDonnerKebab;
 use App\Context\DonnerKebab\Domain\Model\Bread;
 use App\Context\DonnerKebab\Domain\Model\DonnerKebab;
@@ -11,25 +16,45 @@ class DonnerKebabRepository extends EntityRepository implements IDonnerKebab
 {
     public function getBreadByName(string $name): Bread
     {
-        return $this->getEntityManager()->getRepository(Bread::class)->findOneByType($name);
+        $bread=$this->getEntityManager()->getRepository(Bread::class)->findOneByType($name);
+        if(!$bread)
+            throw new BreadNotFoundException();
+
+        return $bread;
+
     }
     public function getDonnerKebabById(string $id): DonnerKebab
     {
-        return $this->findOneById($id);
+        $donnerKebab= $this->findOneById($id);
+        if(!$donnerKebab)
+            throw new DonnerKebabNotFoundException();
+        return $donnerKebab;
     }
     public function getSaladByName(string $name): Salad
     {
-        return $this->getEntityManager()->getRepository(Salad::class)->findOneByType($name);
+
+        $salad=$this->getEntityManager()->getRepository(Salad::class)->findOneByType($name);
+        if(!$salad)
+            throw new SaladNotFoundException();
+        return $salad;
     }
     public function getMeatByName(string $name): Meat
     {
-        return $this->getEntityManager()->getRepository(Meat::class)->findOneByType($name);
+        $meat= $this->getEntityManager()->getRepository(Meat::class)->findOneByType($name);
+        if(!$meat)
+            throw new MeatNotFoundException();
+        return $meat;
     }
 
     public function placeOrder(DonnerKebab $DonnerKebab):void
     {
-        $this->getEntityManager()->persist($DonnerKebab);
-        $this->getEntityManager()->flush();
+        try {
+            $this->getEntityManager()->persist($DonnerKebab);
+            $this->getEntityManager()->flush();
+        } catch (\Exception $e) {
+            throw new InvalidOrderPlacedException($e->getMessage());
+        }
+
 
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Context\DonnerKebab\Application\Command\ValueObjects;
+namespace App\Context\DonnerKebab\Application\ValueObjects;
 
 class DonnerKebabOrder
 {

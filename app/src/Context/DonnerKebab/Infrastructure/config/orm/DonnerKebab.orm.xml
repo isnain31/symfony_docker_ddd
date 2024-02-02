@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\DonnerKebab\Domain\Model\DonnerKebab" repository-class="App\DonnerKebab\Infrastructure\DonnerKebabRepository">
+    <entity name="App\Context\DonnerKebab\Domain\Model\DonnerKebab" repository-class="App\Context\DonnerKebab\Infrastructure\DonnerKebabRepository">
 
 
 

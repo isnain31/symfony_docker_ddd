@@ -2,15 +2,16 @@
 namespace App\Context\DonnerKebab\Infrastructure\Controller;
 
 
-use App\Context\DonerKebab\Application\Query\DonnerOrderQueryHandler;
+use App\Context\DonerKebab\Application\Query\OrderDonnerQueryHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class DonnerKebabGetEndpoint extends AbstractController
 {
-    private DonnerOrderQueryHandler $queryHandler;
+    private OrderDonnerQueryHandler $queryHandler;
 
-    public function __construct(DonnerOrderQueryHandler $queryHandler)
+    public function __construct(OrderDonnerQueryHandler $queryHandler)
     {
         $this->queryHandler=$queryHandler;
     }
@@ -18,8 +19,26 @@ class DonnerKebabGetEndpoint extends AbstractController
     public function getDonnerKebab(string $id): Response
     {
 
-        $donner=$this->queryHandler->handle($id);
-        return new Response(json_encode(["bread"=>$donner->getBread(),"salad"=>$donner->getSalad(),"meat"=>$donner->getMeat(),"price"=>(double)$donner->getPrice()]));
+        try{
+            $donner=$this->queryHandler->handle($id);
 
+            return new JsonResponse(
+
+                [
+                    "bread"=>$donner->getBread(),
+                    "salad"=>$donner->getSalad(),
+                    "meat"=>$donner->getMeat(),
+                    "price"=>(double)$donner->getPrice()
+                ]
+                , Response::HTTP_OK
+
+            );
+        }
+        catch (\Exception $e) {
+            return new JsonResponse(
+                ["error" => $e->getMessage()],
+                Response::HTTP_NOT_FOUND
+            );
+        }
     }
 }

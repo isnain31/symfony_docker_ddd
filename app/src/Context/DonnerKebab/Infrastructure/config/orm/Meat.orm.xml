@@ -6,7 +6,7 @@
 
 
 
-    <entity name="App\DonnerKebab\Domain\Model\Meat" >
+    <entity name="App\Context\DonnerKebab\Domain\Model\Meat" >
 
 
         <id name="id" type="integer" column="id">

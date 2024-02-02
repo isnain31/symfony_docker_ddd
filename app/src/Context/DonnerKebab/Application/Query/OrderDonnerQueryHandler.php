@@ -1,10 +1,10 @@
 <?php
-namespace App\Context\DonerKebab\Application\Query;
+namespace App\Context\DonnerKebab\Application\Query;
 
-use App\Context\DonerKebab\Domain\Repository\IDonnerKebab;
+use App\Context\DonnerKebab\Domain\Repository\IDonnerKebab;
 use App\Context\DonnerKebab\Application\Query\DTO\DonnerKebabDTO;
 
-class DonnerOrderQueryHandler
+class OrderDonnerQueryHandler
 {
 
     private IDonnerKebab $repository;

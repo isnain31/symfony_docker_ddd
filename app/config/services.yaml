@@ -24,17 +24,17 @@ services:
         class: Doctrine\ORM\Entity\EntityRepository
         factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
         arguments:
-            - App\DonnerKebab\Domain\Entity\DonnerKebab
+            - App\Context\DonnerKebab\Domain\Model\DonnerKebab
 
-    App\DonnerKebab\Application\Command\DonnerOrderCommandHandler:
+    App\Context\DonnerKebab\Application\Command\OrderDonner\OrderDonnerCommandHandler:
         arguments: ['@App\DonnerKebabRepository\Infrastructure\DonnerKebabRepository']
 
-    App\DonnerKebab\Application\Query\DonnerOrderQueryHandler:
+    App\Context\DonnerKebab\Application\Query\OrderDonnerQueryHandler:
         arguments: ['@App\DonnerKebabRepository\Infrastructure\DonnerKebabRepository']
 
 
-    App\DonnerKebab\Infrastructure\Controller\DonnerKebabGetEndpoint:
-        arguments: ['@App\DonnerKebab\Application\Query\DonnerOrderQueryHandler']
+    App\Context\DonnerKebab\Infrastructure\Controller\DonnerKebabGetEndpoint:
+        arguments: ['@App\Context\DonnerKebab\Application\Query\OrderDonnerQueryHandler']
 
-    App\DonnerKebab\Infrastructure\Controller\DonnerKebabPostEndpoint:
-        arguments: ['@App\DonnerKebab\Application\Command\DonnerOrderCommandHandler']
+    App\Context\DonnerKebab\Infrastructure\Controller\DonnerKebabPostEndpoint:
+        arguments: ['@App\Context\DonnerKebab\Application\Command\OrderDonner\OrderDonnerCommandHandler']

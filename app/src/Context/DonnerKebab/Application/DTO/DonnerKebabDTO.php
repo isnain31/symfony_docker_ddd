@@ -1,5 +1,5 @@
 <?php
-namespace App\Context\DonnerKebab\Application\Query\DTO;
+namespace App\Context\DonnerKebab\Application\DTO;
 
 use App\Context\DonnerKebab\Domain\Model\DonnerKebab;
 

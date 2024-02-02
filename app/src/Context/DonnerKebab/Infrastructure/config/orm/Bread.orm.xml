@@ -5,7 +5,7 @@
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
 
-    <entity name="App\DonnerKebab\Domain\Model\Bread" >
+    <entity name="App\Context\DonnerKebab\Domain\Model\Bread" >
 
 
 
