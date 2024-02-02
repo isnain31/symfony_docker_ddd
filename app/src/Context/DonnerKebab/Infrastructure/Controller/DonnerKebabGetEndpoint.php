@@ -2,7 +2,7 @@
 namespace App\Context\DonnerKebab\Infrastructure\Controller;
 
 
-use App\Context\DonerKebab\Application\Query\OrderDonnerQueryHandler;
+use App\Context\DonnerKebab\Application\Query\OrderDonnerQueryHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

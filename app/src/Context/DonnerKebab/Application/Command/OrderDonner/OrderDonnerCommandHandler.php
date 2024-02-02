@@ -3,6 +3,10 @@ namespace App\Context\DonnerKebab\Application\Command\OrderDonner;
 
 use App\Context\DonnerKebab\Application\ValueObjects\DonnerKebabOrder;
 use App\Context\DonnerKebab\Application\DTO\DonnerKebabDTO;
+use App\Context\DonnerKebab\Domain\Exceptions\BreadNotFoundException;
+use App\Context\DonnerKebab\Domain\Exceptions\InvalidOrderPlacedException;
+use App\Context\DonnerKebab\Domain\Exceptions\MeatNotFoundException;
+use App\Context\DonnerKebab\Domain\Exceptions\SaladNotFoundException;
 use App\Context\DonnerKebab\Domain\Model\DonnerKebab;
 use App\Context\DonnerKebab\Domain\Repository\IDonnerKebab;
 
@@ -16,6 +20,13 @@ class OrderDonnerCommandHandler
         $this->repository=$donnerKebabRepo;
     }
 
+    /**
+     * @throws BreadNotFoundException
+     * @throws InvalidOrderPlacedException
+     * @throws SaladNotFoundException
+     * @throws MeatNotFoundException
+     * @throws \Exception
+     */
     public function handle(DonnerKebabOrder $order): DonnerKebabDTO
     {
 
