@@ -6,10 +6,10 @@ kernel:
     resource: ../src/Kernel.php
     type: annotation
 
-post_doner:
-    path: /api/doner
-    controller: App\DonerKebab\Infrastructure\Controller\DonerKebabPostEndpoint::postDonerKebab
+post_Donner:
+    path: /api/donner
+    controller: App\DonnerKebab\Infrastructure\Controller\DonnerKebabPostEndpoint::postDonnerKebab
 
-get_doner:
-    path: /api/doner/{id}
-    controller: App\DonerKebab\Infrastructure\Controller\DonerKebabGetEndpoint::getDonerKebab
+get_Donner:
+    path: /api/donner/{id}
+    controller: App\DonnerKebab\Infrastructure\Controller\DonnerKebabGetEndpoint::getDonnerKebab

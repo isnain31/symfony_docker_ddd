@@ -21,7 +21,7 @@ final class Version20220819094415 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql("
-            insert into bread (type,price) values ('doner',1),('durum',.5);
+            insert into bread (type,price) values ('donner',1),('durum',.5);
             insert into meat (type,price) values ('lamb',2),('chicken',1.5);
             insert into salad (type,price) values ('regular',2),('with cheese',2.5),('without onion',1.5);
         ");
