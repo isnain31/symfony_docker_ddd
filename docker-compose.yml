@@ -7,9 +7,9 @@ services:
     image: mariadb:10.3.34
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: snubes
-      MYSQL_USER: snubes
-      MYSQL_PASSWORD: snubes
+      MYSQL_DATABASE: donner
+      MYSQL_USER: donner
+      MYSQL_PASSWORD: donner
     ports:
       - '3306:3306'
     volumes:

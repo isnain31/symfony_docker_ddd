@@ -20,21 +20,21 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\DonerKebabRepository\Infrastructure\DonerKebabRepository:
+    App\DonnerKebabRepository\Infrastructure\DonnerKebabRepository:
         class: Doctrine\ORM\Entity\EntityRepository
         factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
         arguments:
-            - App\DonerKebab\Domain\Entity\DonerKebab
+            - App\Context\DonnerKebab\Domain\Model\DonnerKebab
 
-    App\DonerKebab\Application\Command\DonerOrderCommandHandler:
-        arguments: ['@App\DonerKebabRepository\Infrastructure\DonerKebabRepository']
+    App\Context\DonnerKebab\Application\Command\OrderDonner\OrderDonnerCommandHandler:
+        arguments: ['@App\DonnerKebabRepository\Infrastructure\DonnerKebabRepository']
 
-    App\DonerKebab\Application\Query\DonerOrderQueryHandler:
-        arguments: ['@App\DonerKebabRepository\Infrastructure\DonerKebabRepository']
+    App\Context\DonnerKebab\Application\Query\OrderDonnerQueryHandler:
+        arguments: ['@App\DonnerKebabRepository\Infrastructure\DonnerKebabRepository']
 
 
-    App\DonerKebab\Infrastructure\Controller\DonerKebabGetEndpoint:
-        arguments: ['@App\DonerKebab\Application\Query\DonerOrderQueryHandler']
+    App\Context\DonnerKebab\Infrastructure\Controller\DonnerKebabGetEndpoint:
+        arguments: ['@App\Context\DonnerKebab\Application\Query\OrderDonnerQueryHandler']
 
-    App\DonerKebab\Infrastructure\Controller\DonerKebabPostEndpoint:
-        arguments: ['@App\DonerKebab\Application\Command\DonerOrderCommandHandler']
+    App\Context\DonnerKebab\Infrastructure\Controller\DonnerKebabPostEndpoint:
+        arguments: ['@App\Context\DonnerKebab\Application\Command\OrderDonner\OrderDonnerCommandHandler']

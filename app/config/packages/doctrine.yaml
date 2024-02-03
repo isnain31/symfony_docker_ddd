@@ -13,9 +13,9 @@ doctrine:
           DoenerKebab\Domain:
                 is_bundle: false
                 type: xml
-                dir: '%kernel.project_dir%/src/DonerKebab/Infrastructure/config/orm'
-                prefix: 'App\DonerKebab\Domain\Entity'
-                alias: DonerKebab
+                dir: '%kernel.project_dir%/src/Context/DonnerKebab/Infrastructure/config/orm'
+                prefix: 'App\Context\DonnerKebab\Domain\Model'
+                alias: DonnerKebab
 
 when@test:
     doctrine:

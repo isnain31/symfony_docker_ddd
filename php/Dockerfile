@@ -15,3 +15,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' |  bash
 RUN apt install symfony-cli
 #RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
+COPY ./entry_point.sh /
+RUN chmod +x /entry_point.sh
+
+ENTRYPOINT ["/entry_point.sh"]

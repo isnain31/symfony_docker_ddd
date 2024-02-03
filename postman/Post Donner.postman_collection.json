@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "87748267-7e65-40db-8583-801cd39035dc",
+		"name": "Post Donner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32723668"
+	},
+	"item": [
+		{
+			"name": "create Donner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bread",
+							"value": "doner",
+							"type": "text"
+						},
+						{
+							"key": "meat",
+							"value": "lamb",
+							"type": "text"
+						},
+						{
+							"key": "salad",
+							"value": "regular",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/donner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"donner"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
